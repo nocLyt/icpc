@@ -1,0 +1,99 @@
+【HDU】
+(DO) 1213 		How Many Tables				基础并查集★
+(DO) 1272 		小希的迷宫				基础并查集★
+(DO) 1325&&poj1308 	Is It A Tree?				基础并查集★
+(DO) 1856 		More is better				基础并查集★
+(DO) 1102 		Constructing Roads			基础最小生成树★
+(DO) 1232 		畅通工程				基础并查集★
+(DO) 1233 		还是畅通工程				基础最小生成树★
+(DO) 1863 		畅通工程				基础最小生成树★
+(DO) 1875 		畅通工程再续				基础最小生成树★
+
+(PA) 1879 		继续畅通工程				基础最小生成树★
+(PA) 3371    	Connect the Cities  			简单最小生成树★
+(PA) 1301 		Jungle Roads				基础最小生成树★
+(PA) 1162 		Eddy's picture				基础最小生成树★
+(PA) 1198 		Farm Irrigation				基础最小生成树★
+
+(DO) 1598 		find the most comfortable road		枚举+最小生成树★★
+(DO) 1811 		Rank of Tetris				并查集+拓扑排序★★
+
+(PA) 3926 		Hand in Hand				同构图★ : 因为每个点的度最大为2，那么不是环就是链，还有独立的点。  统计 独立点个数，统计环个数以及每个环包含几个点，统计链个数以及每个链中点的个数。
+
+(DO) 3938 		Portal  				离线+并查集★★
+(PA) 2489    	Minimal Ratio Tree 			dfs枚举组合情况+最小生成树★
+(DO) 4081    	Qin Shi Huang's National Road System 	最小生成树+DFS★★
+4126    	Genghis Khan the Conqueror 		枚举+最小生成树+DFS(难)★★★★
+
+===================================================================
+
+(DO) poj2492 	A Bug's Life			基础种类并查集★
+(DO) 1558 		Segment set			计算几何+并查集★
+3461 		Code Lock			并查集(有点难想到)★★
+3367 		Pseudoforest			最大生成树★
+2473 		Junk-Mail Filter		并查集+设立虚父节点(马甲)★★
+3172 		Virtual Friends			带权并查集★
+3635 		Dragon Balls			带权并查集★
+3047 		Zjnu Stadium			带权并查集★
+3038 		How Many Answers Are Wrong	种类并查集★★
+2818 		Building Block			带权并查集★
+3234 		Exclusive-OR			异或并查集(难)★★★
+2121    	Ice_cream’s world II  		最小树形图(要输出根有点恶心)★★
+4009    	Transfer water 			最小树形图(模板题)★
+3311  		Dig The Wells		  	斯坦纳树(状压DP)(模板题)★★
+4085		Peach Blossom Spring		斯坦纳树(状压DP)(有可能是森林...)★★★
+
+2586 		How far away ？			LCA★
+2874 		Connections between cities	LCA★
+3486 		Interviewe			RMQ★
+2888 		Check Corners			二维RMQ★
+3183		A Magic Lamp			RMQ(有点难想到,有点难联系到RMQ)★★
+
+
+===================================================================
+===================================================================
+
+【POJ】
+1258 					最经典的MST★
+1789 Truck History 			最小生成树★
+1287 Networking 			简单★
+2349 Arctic Network			简单★
+1611 The Suspects 			并查集★
+2377 					kruskal★
+2524 Ubiquitous Religions 		并查集★
+2236 Wireless Network 			并查集+计算几何★
+2560 					Kruskal 并查集★
+1861 					Kruskal ★
+3625 					prim★
+1679 - The Unique MST(基础)  		判断MST是否唯一★
+3522 - Slim Span(基础)  		求一颗生成树，让最大边最小边差值最小★
+2485 Highways 				MST中的最长边★
+2395 					最小生成树的最长边★
+1751 Highways 				求出方案★
+
+===================================================================
+
+POJ-1182 食物链 			种类并查集★★
+POJ 1456 Supermarket			贪心+区间合并★
+POJ-1703 				种类并查集★
+POJ-1988 				种类并查集★
+POJ-1733 Parity game 			种类并查集，先要离散化一下，不影响结果★
+
+POJ-1417 True Liars(难) 		并查集+DP 种类并查集★★
+POJ-2912 Rochambeau(难) 		baidu的题,很不错...是食物链的加强版.判断裁判比较难想.★★★
+POJ 2728 - Desert King(中等)  		最优比率生成树★★
+POJ 1639 - Picnic Planning(较难) 	顶点度数有限制的最小生成树★★
+POJ 3164 - Command Network(难) 		最小树形图★★
+
+poj3723					好题!!! ★★
+poj3228					好好题!!! ★★
+
+
+===================================================================
+===================================================================
+
+【ZOJ】
+ZOJ-3261 逆向并查集 ★★
+
+===================================================================
+
