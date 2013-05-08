@@ -1,0 +1,32 @@
+#define VIS vector<string>
+inline bool insize(int c,int l,int r){if (c>=l&&c<=r) return true; return false;}
+template<class T> inline void CLR(T &A) {A.clear();}
+
+// 传进去一个 string 引用，读一个字符串, 字符串只包含 大小写字母！
+// 以 ' ' 和 '\n'为结束。 如果读到 '\n'返回0，否则返回1
+
+
+bool getchars(string &str)
+{
+    char c;
+    str="";
+    while((c= getchar())!='\n' && c!=' ')
+    {
+        if(!insize(c,int('a'),int('z')) && !insize(c,int('A'),int('Z'))  ) continue;
+        str+=c;
+    }
+    if(c=='\n') return 0;
+    else return 1;
+}
+
+
+// 用处： 读一行包含多个字符串，用' '隔开，并以'\n'结尾。
+// 保存在 VIS里
+void getchars(VIS &vs)
+{
+    CLR(vs);
+    string ss;
+    for(;getchars(ss);vs.PB(ss));
+    vs.PB(ss);
+}
+

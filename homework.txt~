@@ -23,15 +23,15 @@
 (DO) 3938 		Portal  				离线+并查集★★
 (PA) 2489    	Minimal Ratio Tree 			dfs枚举组合情况+最小生成树★
 (DO) 4081    	Qin Shi Huang's National Road System 	最小生成树+DFS★★
-4126    	Genghis Khan the Conqueror 		枚举+最小生成树+DFS(难)★★★★
+★★★★4126    	Genghis Khan the Conqueror 		枚举+最小生成树+DFS(难)★★★★
 
 ===================================================================
 
-1829&&poj2492 	A Bug's Life			基础种类并查集★
-1558 		Segment set			计算几何+并查集★
-3461 		Code Lock			并查集(有点难想到)★★
-3367 		Pseudoforest			最大生成树★
-2473 		Junk-Mail Filter		并查集+设立虚父节点(马甲)★★
+(DO) poj2492 	A Bug's Life			基础种类并查集★
+(DO) 1558 		Segment set			计算几何+并查集★
+(DO) ★★★ 3461 		Code Lock			并查集(有点难想到)★★
+(PA) 3367 		Pseudoforest			最大生成树★
+(Can't Understand) 2473 		Junk-Mail Filter		并查集+设立虚父节点(马甲)★★
 3172 		Virtual Friends			带权并查集★
 3635 		Dragon Balls			带权并查集★
 3047 		Zjnu Stadium			带权并查集★
