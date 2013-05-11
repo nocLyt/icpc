@@ -77,7 +77,8 @@ template<class T> inline void sf(T& x)
     }
     x *= mul;
 }
-template<class T0, class T1> inline void sf(T0& x, T1& y){sf(x);sf(y);}
+template<class T0, class T1> inline void sf(T0& x, T1& y) {sf(x);sf(y);}
+template<class T0, class T1, class T2> inline void sf(T0& x, T1& y, T2& z) {sf(x);sf(y);sf(z);}
 // mem 127, 0x7f => 2139062143 => 0x7F7F7F7F
 // mem  63, 0x3f => 1061109567 => 0x3f3f3f3f
 // mem 255, 0xff => -1
