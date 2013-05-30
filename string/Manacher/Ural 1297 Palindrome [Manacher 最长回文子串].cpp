@@ -1,8 +1,3 @@
-/*
-	用于判断精度的 dblcmp() 更名为 sig()
-	STL的宏 foreach() 更名为 feach()
-*/
-
 #include <ctime>
 #include <iostream>
 #include <fstream>
@@ -87,10 +82,67 @@ template<class T0, class T1, class T2> inline void sf(T0& x, T1& y, T2& z) {sf(x
 // mem 127, 0x7f => 2139062143 => 0x7F7F7F7F
 // mem  63, 0x3f => 1061109567 => 0x3f3f3f3f
 // mem 255, 0xff => -1
-const int N=100005;       // 点数
+const int N=1000005;       // 点数
 const int E=200055;   //边数
 const int INF= 0x3f3f3f3f;
 const long long  LINF= 0x3F3F3F3F3F3F3F3FLL;
 
 
+/*
 
+学习： http://blog.sina.com.cn/s/blog_70811e1a01014esn.html
+
+    首'(' 尾')' 和中间'#' 都插入不同的字符
+    性质： str[i]='#' if i%2==0
+*/
+struct Manacher {
+    char str[N];    //插入处理字符串
+    int r[N];
+    void init(char *ss) {
+        int l= strlen(ss);
+        rp(i,l) {
+        	str[(i<<1)+1]= ss[i];
+        	str[(i<<1)+2]= '#';
+        }
+        str[0]= '('; str[l<<1]= ')'; str[l<<1|1]=0;
+    }
+    void cal(char *ss) {// ss为原字符串
+        int ans=-1, head=-1;    //回文串长度ans, 起点head
+        for(int i=1;str[i]!=')';i++){
+            int t= (r[i]+(i%2))/2;
+            int m= i/2;
+            int l= m-t+(i%2);
+            int r= m+t- 1;
+            if((r-l+1)>ans) {
+            	ans= r-l+1;
+            	head= l;
+            }
+        }
+        for(int i=head;ans;ans--,i++)
+            printf("%c", ss[i]);
+        puts("");
+    }
+    void manacher(char *ss) {
+        init(ss);
+        int l= strlen(str);  rp(i,l)r[i]= 1;
+        // i表示 处理到哪里了,  str[i-j+1..i+j-1]是回文串
+        for(int i=1,j=r[1],k; i<l; i+=k,j=max(r[i],j-k)) {
+            for(;str[i-j]==str[i+j];j++)    ;
+            r[i]= j;
+            for(k=1;k<j&& r[i]-k!=r[i-k]; k++) r[i+k]=min(r[i]-k, r[i-k]);
+        }
+        cal(ss);
+    }
+};
+
+Manacher ma;
+char str[N];
+
+int main(){
+    // du;
+    while(~scanf("%s", str)) {
+        ma.manacher(str);
+    }
+
+
+}

@@ -1,8 +1,3 @@
-/*
-	用于判断精度的 dblcmp() 更名为 sig()
-	STL的宏 foreach() 更名为 feach()
-*/
-
 #include <ctime>
 #include <iostream>
 #include <fstream>
@@ -87,10 +82,68 @@ template<class T0, class T1, class T2> inline void sf(T0& x, T1& y, T2& z) {sf(x
 // mem 127, 0x7f => 2139062143 => 0x7F7F7F7F
 // mem  63, 0x3f => 1061109567 => 0x3f3f3f3f
 // mem 255, 0xff => -1
-const int N=100005;       // 点数
-const int E=200055;   //边数
+const int N=400005;       // 点数
+const int E=20055;   //边数
 const int INF= 0x3f3f3f3f;
 const long long  LINF= 0x3F3F3F3F3F3F3F3FLL;
 
+/*
+    xiaodao: "容易想到一个结论。。。只要所有边界格子都被染色。。那么所有格子就已经被染色。。。必要性显然。。充分性可以对格子归纳得到。。"
+
+    那么， 无解的情况就是一个格子走了好多次。。。唔。。我设的>3次。
+    那么就是个模拟了。。
+
+*/
+
+int n,m, sx, sy, flag;
+LL ans;
+char op[5];
+map<II,int> mp;
+
+void change(char *op) {
+    if(op[0]=='U'&& sx==1)  op[0]='D';
+    if(op[0]=='D'&& sx==n)  op[0]='U';
+    if(op[1]=='L'&& sy==1)  op[1]='R';
+    if(op[1]=='R'&& sy==m)  op[1]='L';
+}
+
+bool go() {
+    II p= MP(sx,sy);
+    if ( sx==1||sx==n || sy==1 ||sy==m ) {
+        int c= ++mp[p];
+        if (c==1)   flag--;
+        else if(c>3)    { flag= -1; return 0;}
+        if(!flag)   return 1;
+    }
+
+    int s1= op[0]=='U'?sx-1:n-sx;
+    int s2= op[1]=='L'?sy-1:m-sy;
+    int s= min(s1,s2);
+
+    ans+= (LL)s;
+    sx+= op[0]=='U'?-s:s;
+    sy+= op[1]=='L'?-s:s;
+
+    return 1;
+}
+
+LL Run() {
+	while(flag>0) {
+	    if (!go()) break;
+        change(op);
+	}
+    if(!flag)   return ans;
+    return -1;
+}
 
 
+int main(){
+
+    sf(n,m); sf(sx,sy); scanf("%s", op);
+    ans=1; flag= 0;
+    CLR(mp);
+    rep(i,1,m)  { if((i+1)%2==0) flag++; if((i+n)%2==0) flag++;}
+    rep(i,2,n-1)  { if((i+1)%2==0) flag++; if((i+m)%2==0) flag++;}
+
+    cout<<Run()<<endl;
+}

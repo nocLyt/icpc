@@ -1,8 +1,3 @@
-/*
-	用于判断精度的 dblcmp() 更名为 sig()
-	STL的宏 foreach() 更名为 feach()
-*/
-
 #include <ctime>
 #include <iostream>
 #include <fstream>
@@ -92,5 +87,10 @@ const int E=200055;   //边数
 const int INF= 0x3f3f3f3f;
 const long long  LINF= 0x3F3F3F3F3F3F3F3FLL;
 
+double a, b, c, d;
 
-
+int main(){
+    cin>> a>> b>> c>> d;
+    double p= a/b, q= c/d;
+    printf("%.10lf\n", p/(1-(1-p)*(1-q)));
+}

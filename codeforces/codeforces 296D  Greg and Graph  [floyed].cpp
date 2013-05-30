@@ -1,8 +1,3 @@
-/*
-	用于判断精度的 dblcmp() 更名为 sig()
-	STL的宏 foreach() 更名为 feach()
-*/
-
 #include <ctime>
 #include <iostream>
 #include <fstream>
@@ -87,10 +82,40 @@ template<class T0, class T1, class T2> inline void sf(T0& x, T1& y, T2& z) {sf(x
 // mem 127, 0x7f => 2139062143 => 0x7F7F7F7F
 // mem  63, 0x3f => 1061109567 => 0x3f3f3f3f
 // mem 255, 0xff => -1
-const int N=100005;       // 点数
+const int N=505;       // 点数
 const int E=200055;   //边数
 const int INF= 0x3f3f3f3f;
 const long long  LINF= 0x3F3F3F3F3F3F3F3FLL;
 
+/*
+    把删去的点倒着复原。 每加入一次，用一次Floyed。
+    时间复杂度 O(n^3)
+*/
+
+int h[N][N], f[N][N];
+int del[N];
+LL ans[N];
+int n;
+VI v;
 
 
+int main(){
+    sf(n);  CLR(v); mem(f,0x3f);    // g.init();
+    rep(i,1,n) rep(j,1,n) sf(h[i][j]);
+    rep(i,1,n) sf(del[i]);
+
+    repp(o,n,1,-1) {
+        ans[o]= 0;
+        int y= del[o]; v.PB(y);
+        int l= SZ(v);
+
+        rp(i,l) rp(j,l) { int p=v[i], q=v[j]; checkmin(h[p][y], h[p][q]+h[q][y]); }
+        rp(i,l) rp(j,l) { int p=v[i], q=v[j]; checkmin(h[y][p], h[y][q]+h[q][p]); }
+
+        rp(i,l) rp(j,l) { int p=v[i], q=v[j]; checkmin(h[p][q], h[p][y]+h[y][q]); }
+        rp(i,l) rp(j,l) { int p=v[i], q=v[j]; ans[o]+= (LL)h[p][q]; }
+
+    }
+    rep(i,1,n)  {cout<<ans[i];printf("%c", i==n?'\n':' ');}
+
+}

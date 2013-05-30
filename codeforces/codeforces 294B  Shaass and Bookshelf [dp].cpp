@@ -1,8 +1,3 @@
-/*
-	用于判断精度的 dblcmp() 更名为 sig()
-	STL的宏 foreach() 更名为 feach()
-*/
-
 #include <ctime>
 #include <iostream>
 #include <fstream>
@@ -92,5 +87,38 @@ const int E=200055;   //边数
 const int INF= 0x3f3f3f3f;
 const long long  LINF= 0x3F3F3F3F3F3F3F3FLL;
 
+/*
+    DP。 为了保证下面厚度一定时，上面宽度最小。 、
+     f[i] 表示组成厚度为i的书的最大宽度。
+     总宽度sw 是一定的， 那么剩下的书要放在第二层，就保证了宽度最小。
+     然后 总前向后找第一哥满足 i>=sw-f[i] 即可。
 
+     注意， 厚度和必须是可到达的！
+     如
+     3 2 5 2 5 2 5 答案是 6
 
+*/
+
+int n, sw, st;
+int t[N], w[N], f[N];
+bool vis[N];
+
+int main(){
+    sf(n);  sw=0; st=0; mem(f,0); mem(vis,0);
+    rep(i,1,n) { sf(t[i], w[i]); sw+= w[i]; st+= t[i]; }
+
+    rep(i,1,n)
+        repp(j,st,t[i],-1)
+            checkmax(f[j], f[j-t[i]]+w[i]);
+    vis[0]= 1;
+    rep(i,1,n)
+        repp(j,st,t[i],-1)
+            if(vis[j-t[i]])   vis[j]= 1;
+
+    rep(i,0,st)
+    	if( vis[i]&& i>=sw-f[i]) {
+    		printf("%d\n", i);
+    		break;
+    	}
+
+}
